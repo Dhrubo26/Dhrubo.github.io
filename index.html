@@ -68,9 +68,25 @@
         .portfolio-info h4 { font-size: 1rem; color: #fff; margin-bottom: 0.2rem; }
         .portfolio-info p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* Video Frame */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 1.2rem; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        /* Drive Link Button Style */
+        .drive-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.4rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .drive-btn:hover {
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
 
         /* Footer */
         footer { margin-top: 5rem; border-top: 1px solid var(--border-color); padding: 3rem 0; text-align: center; }
@@ -90,8 +106,8 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <!-- Updated Profile Picture -->
-            <img src="dhrubo.jpg" alt="Dhrubo Rangsa" class="profile-img">
+            <!-- Updated profile image source to dhrubo.jpg (or dhrubo.jpeg/png based on your exact file) -->
+            <img src="dhrubo.jpg" alt="Dhrubo Rangsa" class="profile-img" onerror="this.onerror=null; this.src='dhrubo.jpeg';">
             <span class="badge"><i class="fa-solid fa-code"></i> AVAILABLE FOR PROJECTS</span>
             <h1>Dhrubo Rangsa</h1>
             <p class="subtitle">Software Technology & AI Specialist | Web Developer | Multimedia Creator</p>
@@ -116,7 +132,6 @@
                 <span class="tag">MySQL</span>
             </div>
 
-            <!-- Live Demo & GitHub Link -->
             <div style="margin-top: 1.2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
                 <a href="https://github.com/Dhrubo26/blood-aid-project" target="_blank" style="color: var(--secondary); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem;">
                     <i class="fa-brands fa-github"></i> View Repository
@@ -148,97 +163,83 @@
         </div>
 
         <!-- Multimedia Overview Section -->
-        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Multimedia & Design Showcase</h2>
+        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Multimedia & Production Works</h2>
         
         <div class="grid">
             <div class="card">
-                <h3>Graphic & Visual Design</h3>
-                <p>Experience in creating public announcement notices, event posters, document layouts, and photo editing/retouching using Adobe Photoshop and Canva.</p>
-                <div class="tech-tags">
-                    <span class="tag">Photoshop</span>
-                    <span class="tag">Canva</span>
-                    <span class="tag">UI Layouts</span>
-                </div>
+                <h3><i class="fa-solid fa-video" style="color: var(--secondary); margin-right: 0.5rem;"></i> Video Production Showcase</h3>
+                <p style="margin-bottom: 1.2rem;">Access my full collection of edited video content, live stream archives, and project reels stored on Google Drive.</p>
+                <a href="https://drive.google.com/drive/folders/1WEm5gMy2Qg2K2AEkItHbJlIY0L0dxuUb" target="_blank" class="drive-btn">
+                    <i class="fa-brands fa-google-drive"></i> Open Video Drive Folder
+                </a>
             </div>
             <div class="card">
-                <h3>Audio-Visual Production</h3>
-                <p>Arranging acoustic and low-fi musical compositions, lyric-based content alignment, and managing technical multi-channel live-streaming setups.</p>
-                <div class="tech-tags">
-                    <span class="tag">Live Streaming</span>
-                    <span class="tag">Audio Editing</span>
-                    <span class="tag">OBS Studio</span>
-                </div>
+                <h3><i class="fa-solid fa-music" style="color: var(--secondary); margin-right: 0.5rem;"></i> Audio & Musical Work</h3>
+                <p style="margin-bottom: 1.2rem;">Explore original audio tracks, acoustic arrangements, low-fi compositions, and sound designs on Google Drive.</p>
+                <a href="https://drive.google.com/drive/folders/1owGeRKu6pmcR8O8F2kYTNAuYk6i0-C0D" target="_blank" class="drive-btn">
+                    <i class="fa-brands fa-google-drive"></i> Open Audio Drive Folder
+                </a>
             </div>
         </div>
 
-        <!-- Photoshop Design Gallery (8 Photos Added) -->
+        <!-- Photoshop Design Gallery -->
         <h2 class="section-title"><i class="fa-solid fa-image"></i> Photoshop & Design Gallery</h2>
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <img src="photo 1.jpg" alt="Photoshop Design 1">
+                <img src="photo%201.jpeg" alt="Photoshop Design 1" onerror="this.src='photo 1.jpeg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #1</h4>
                     <p>Creative layout & graphic design</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 2.jpg" alt="Photoshop Design 2">
+                <img src="photo%202.jpg" alt="Photoshop Design 2" onerror="this.src='photo 2.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #2</h4>
                     <p>Image editing & composition</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 3.jpg" alt="Photoshop Design 3">
+                <img src="photo%203.jpg" alt="Photoshop Design 3" onerror="this.src='photo 3.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #3</h4>
                     <p>Visual branding & graphics</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 4.jpg" alt="Photoshop Design 4">
+                <img src="photo%204.jpg" alt="Photoshop Design 4" onerror="this.src='photo 4.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #4</h4>
                     <p>Poster & banner design</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 5.jpg" alt="Photoshop Design 5">
+                <img src="photo%205.jpg" alt="Photoshop Design 5" onerror="this.src='photo 5.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #5</h4>
                     <p>Photo retouching & color grade</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 6.jpg" alt="Photoshop Design 6">
+                <img src="photo%206.jpg" alt="Photoshop Design 6" onerror="this.src='photo 6.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #6</h4>
                     <p>Custom graphic layout</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 7.jpg" alt="Photoshop Design 7">
+                <img src="photo%207.jpg" alt="Photoshop Design 7" onerror="this.src='photo 7.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #7</h4>
                     <p>Digital content creation</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <img src="photo 8.jpg" alt="Photoshop Design 8">
+                <img src="photo%208.jpg" alt="Photoshop Design 8" onerror="this.src='photo 8.jpg'">
                 <div class="portfolio-info">
                     <h4>Photoshop Work #8</h4>
                     <p>Special project edit</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Video Showcase Section -->
-        <h2 class="section-title"><i class="fa-solid fa-video"></i> Video Samples</h2>
-        <div class="card">
-            <h3>Featured Project / Live Stream Showcase</h3>
-            <p>Sample video showing media editing, creative production, or technical streaming implementation:</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -264,3 +265,4 @@
 
 </body>
 </html>
+
