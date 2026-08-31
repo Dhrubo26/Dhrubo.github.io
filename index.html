@@ -3,167 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhrubo | Portfolio</title>
+    <title>Dhrubo Rangsa | Software & AI Specialist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 31, 47, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary: #6366f1;
+            --secondary: #06b6d4;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
         }
 
-        body {
-            background-color: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
-            padding: 40px 20px;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; background-image: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 40%); background-attachment: fixed; }
+
+        .container { max-width: 1050px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* Header / Hero Section */
+        header { text-align: center; padding: 4rem 1rem 3rem 1rem; position: relative; }
+        
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+            margin: 0 auto 1.5rem auto;
+            display: block;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .badge { display: inline-block; padding: 0.35rem 1rem; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: var(--secondary); font-size: 0.85rem; font-weight: 600; border-radius: 50px; margin-bottom: 1.2rem; letter-spacing: 0.5px; }
+        header h1 { font-size: 3.2rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.8rem; background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p.subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 1.5rem auto; font-weight: 400; }
+        .location { display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: var(--text-muted); font-size: 0.95rem; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #0f172a;
-        }
+        /* Section Titles */
+        .section-title { font-size: 1.6rem; font-weight: 700; margin: 3.5rem 0 1.8rem 0; display: flex; align-items: center; gap: 0.75rem; color: #fff; }
+        .section-title i { color: var(--secondary); font-size: 1.3rem; }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
+        /* Cards */
+        .card { background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.8rem; margin-bottom: 1.5rem; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-4px); border-color: rgba(99, 102, 241, 0.4); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.8rem; }
+        .card h3 { font-size: 1.3rem; font-weight: 600; color: #fff; }
 
-        .project-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        /* Tech Tags */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0 0; }
+        .tag { font-size: 0.78rem; font-weight: 600; background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.1); padding: 0.25rem 0.75rem; border-radius: 6px; }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
+        .card p { color: var(--text-muted); font-size: 0.98rem; }
 
-        .badge {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #3730a3;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
+        /* Grid Layout */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
 
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #1e293b;
-        }
+        /* Gallery Grid */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .portfolio-item { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease; }
+        .portfolio-item:hover { transform: translateY(-5px); border-color: rgba(6, 182, 212, 0.5); }
+        .portfolio-item img { width: 100%; height: 210px; object-fit: cover; display: block; }
+        .portfolio-info { padding: 1.2rem; }
+        .portfolio-info h4 { font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; }
+        .portfolio-info p { font-size: 0.88rem; color: var(--text-muted); }
 
-        .project-card p {
-            font-size: 0.95rem;
-            color: #64748b;
-            margin-bottom: 15px;
-        }
+        /* Video Frame */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 1.2rem; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
+        /* Footer */
+        footer { margin-top: 5rem; border-top: 1px solid var(--border-color); padding: 3rem 0; text-align: center; }
+        .contact-box { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .contact-item { display: flex; align-items: center; gap: 0.6rem; color: #cbd5e1; font-size: 0.95rem; }
+        .contact-item i { color: var(--primary); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; }
 
-        .tech-stack span {
-            background: #f1f5f9;
-            color: #334155;
-            font-size: 12px;
-            font-weight: 500;
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn {
-            text-decoration: none;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: background 0.2s ease;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .contact-box { flex-direction: column; gap: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
+        <!-- Header -->
+        <header>
+            <img src="your-photo.jpg" alt="Dhrubo Rangsa" class="profile-img">
+            <span class="badge"><i class="fa-solid fa-code"></i> AVAILABLE FOR PROJECTS</span>
+            <h1>Dhrubo Rangsa</h1>
+            <p class="subtitle">Software Technology & AI Specialist | Web Developer | Multimedia Creator</p>
+            <div class="location">
+                <i class="fa-solid fa-location-dot"></i> Netrokona / Mymensingh, Bangladesh
+            </div>
+        </header>
+
+        <!-- IT Projects Section -->
+        <h2 class="section-title"><i class="fa-solid fa-laptop-code"></i> IT & Software Projects</h2>
         
-        <div class="projects-grid">
-            
-            <!-- Project 1: Blood Aid -->
-            <div class="project-card">
-                <div>
-                    <span class="badge">Real-Time System</span>
-                    <h3>Blood Aid</h3>
-                    <p>A real-time peer-to-peer blood donation framework designed for immediate donor matching and request management.</p>
-                    <div class="tech-stack">
-                        <span>Python (Flask)</span>
-                        <span>Laravel</span>
-                        <span>Socket.IO</span>
-                        <span>PostgreSQL</span>
-                        <span>MySQL</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Dhrubo26/blood-aid" target="_blank" class="btn btn-primary">GitHub Repository</a>
-                </div>
+        <div class="card">
+            <div class="card-header">
+                <h3>Blood Aid — Real-Time Blood Donation Platform</h3>
             </div>
-
-            <!-- Project 2: Laravel Task Manager -->
-            <div class="project-card">
-                <div>
-                    <span class="badge">Web Application</span>
-                    <h3>Laravel Task Manager</h3>
-                    <p>An interactive task management system supporting full CRUD operations, priority tagging (High/Medium/Low), and dynamic updates.</p>
-                    <div class="tech-stack">
-                        <span>PHP 8</span>
-                        <span>Laravel</span>
-                        <span>Bootstrap 5</span>
-                        <span>MySQL / SQLite</span>
-                    </div>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Dhrubo26/task-app" target="_blank" class="btn btn-primary">GitHub Repository</a>
-                </div>
+            <p>Architected and developed a full-stack, three-tier real-time platform designed to connect blood donors and recipients instantly with socket-based live notifications and efficient data management.</p>
+            <div class="tech-tags">
+                <span class="tag">Python (Flask)</span>
+                <span class="tag">Socket.IO</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">MySQL</span>
             </div>
-
         </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Dynamic Task & Workflow Management System</h3>
+            </div>
+            <p>Developed a lightweight dynamic application using PHP and Laravel ecosystem featuring database migrations, RESTful APIs, and efficient CRUD operations for workflow handling.</p>
+            <div class="tech-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">Laravel</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">REST API</span>
+            </div>
+        </div>
+
+        <!-- Multimedia Overview Section -->
+        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Multimedia & Design Showcase</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Graphic & Visual Design</h3>
+                <p>Experience in creating public announcement notices, event posters, document layouts, and photo editing/retouching using Adobe Photoshop and Canva.</p>
+                <div class="tech-tags">
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">Canva</span>
+                    <span class="tag">UI Layouts</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Audio-Visual Production</h3>
+                <p>Arranging acoustic and low-fi musical compositions, lyric-based content alignment, and managing technical multi-channel live-streaming setups.</p>
+                <div class="tech-tags">
+                    <span class="tag">Live Streaming</span>
+                    <span class="tag">Audio Editing</span>
+                    <span class="tag">OBS Studio</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photoshop Design Gallery -->
+        <h2 class="section-title"><i class="fa-solid fa-image"></i> Photoshop & Design Gallery</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="photoshop1.jpg" alt="Public Notice Layout">
+                <div class="portfolio-info">
+                    <h4>Public Notice & Poster Layout</h4>
+                    <p>Clean alignment, custom typography, and formal composition using Adobe Photoshop.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="photoshop2.jpg" alt="Photo Retouching">
+                <div class="portfolio-info">
+                    <h4>Photo Retouching & Restoration</h4>
+                    <p>Professional background editing, subject highlights, and color enhancement.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="photoshop3.jpg" alt="Event Banner">
+                <div class="portfolio-info">
+                    <h4>Event Banner & Digital Collages</h4>
+                    <p>Creative layer composition for environmental awareness campaign events.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Showcase Section -->
+        <h2 class="section-title"><i class="fa-solid fa-video"></i> Video Samples</h2>
+        <div class="card">
+            <h3>Featured Project / Live Stream Showcase</h3>
+            <p>Sample video showing media editing, creative production, or technical streaming implementation:</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="contact-box">
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>rangsadhrubo26@hotmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>01648362707 (Personal)</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-building"></i>
+                    <span>01518486461 (Official)</span>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 Dhrubo Rangsa. All Rights Reserved.</p>
+        </footer>
     </div>
 
 </body>
